@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	body{
+		margin:0;
+		font-family: helvetica;
+	}
+	
+	h1{
+		color:white;
+	}
+
+	nav{
+	}
+
+	section{
+		height:632px;
+		width:100%;
+	}
+
+	ul{
+		list-style:none;
+	}
+	
+	nav li{
+		display: inline-block;
+		text-decoration: none;
+		padding:10px;
+		width:100px;
+	}
+
+	nav li:hover{
+		opacity:.5;
+	}
+
+	p{
+		color: white;
+		width: 400px;
+		line-height:28px;
+	}
+
+	a{
+		color:black;
+		text-decoration: none;
+	}
+
+	#galaga{
+		position:absolute;
+		right:10%;
+		bottom:10%;
+		transform:rotate(180deg);
+	}
+
+	.content{
+		padding:10px;
+		margin-left:35px;
+	}
+
+	#about{
+		background-image:url(http://nataliapiskova.org.ua/wp-content/uploads/2013/11/outer-space-1920x1200-hd-wallpaper.jpg);
+	}
+
+	#projects{
+		background-image:url(http://images6.fanpop.com/image/photos/33400000/space-colors-space-33432401-1920-1080.jpg);
+	}
+
+	#blog{
+		background-image:url(http://d3819ii77zvwic.cloudfront.net/wp-content/uploads/2014/10/NASA-outerspace.jpg);
+	}
+
+	#social{
+		background-image:url(http://ahangoverfreelife.com/wp-content/uploads/2014/05/outer-space-wallpaper-4345-4399-hd-wallpapers.jpg);
+	}
+
+	#contact{
+		background-image:url(http://upload.wikimedia.org/wikipedia/commons/8/87/LH_95.jpg);
+	}
+	
+	#nav-wrapper{
+		width:100%;
+		background:white;
+	}
+	
+	#NASA{
+		height:40px;
+		margin-bottom:-5px;
+	}
+	</style>
+</head>
+<body>
+	<div id="nav-wrapper">
+		<nav>
+			<ul>
+				<li><a href="www.nasa.gov"><img id="NASA" src="http://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/NASA_logo.svg/290px-NASA_logo.svg.png" alt="nasa"></a></li>
+				<li><a href="#about">About</a></li>
+				<li><a href="#projects">Projects</a></li>
+				<li><a href="#blog">Blog</a></li>
+				<li><a href="#social">Social</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</nav>
+	</div>
+		<img id="galaga" src="http://cdn.wikimg.net/strategywiki/images/7/75/Galaga_Fighter.png" data-stellar-ratio=".25" alt="galaga">
+	<section id="about">
+		<div class="content" data-stellar-background-ratio="0.5">
+			<h1>About</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates cum delectus fuga nobis pariatur nesciunt sapiente quis id dolorum hic quisquam dolorem, deserunt magni eius iste beatae, modi dolores culpa.</p>
+		</div>
+	</section>
+	<section id="projects" data-stellar-background-ratio="0.5">
+		<div class="content">
+			<h1>Projects</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum obcaecati ipsam accusamus dicta eveniet culpa, consequatur a enim beatae aliquid doloremque architecto cupiditate itaque error nam praesentium quod iste. Iure.</p>
+		</div>
+	</section>
+	<section id="blog" data-stellar-background-ratio="0.5">
+		<div class="content">
+			<h1>Blog</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam est aliquam pariatur alias, obcaecati, voluptas non et rerum nostrum esse explicabo distinctio sed velit ad? Minima omnis saepe magni excepturi.</p>
+		</div>
+	</section>
+	<section id="social" data-stellar-background-ratio="0.5">
+		<div class="content">
+			<h1>Social</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto cumque voluptas veritatis. Facere fuga veniam sint voluptatem, ea, placeat fugiat hic ullam saepe, eveniet porro laudantium ipsum consequatur officia quo.</p>
+		</div>
+	</section>
+	<section id="contact" data-stellar-background-ratio="0.5">
+		<div class="content">
+			<h1>Contact</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque architecto maxime qui nostrum, laudantium nulla sed fugiat quisquam sequi accusantium exercitationem sint vitae provident nemo sunt nisi dolore, odit beatae.</p>
+		</div>
+	</section>
+	<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="js/jquery.scrollTo.min.js"></script>
+	<script src="js/jquery.stellar.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('nav a').click(function(event){
+				event.preventDefault();
+					var destination = $(this).attr("href");
+				$.scrollTo(destination, 1000);
+			});
+		
+		$(window).scroll(function(){
+			if($(window).scrollTop() > 100 && $('#nav-wrapper').css('position')!='fixed')
+			{
+				$('#nav-wrapper').hide(function() {
+					$('#nav-wrapper').css('position','fixed');
+					$('#nav-wrapper').fadeIn('200');
+				});
+			}
+			else if ($(window).scrollTop() <= 100) {
+					$('#nav-wrapper').css('position', 'initial');
+			}
+
+			$(window).stellar();
+
+		});
+
+/*
+		$(window).scroll(function(){
+			if($(window).scrollTop) > 5 && $('section').css('background')!= 'linear-gradient'){
+			$('section').css('background','-webkit-linear-gradient(red, blue)')
+		} else if{
+
+		}
+		});
+*/
+
+	});
+	</script>
+</body>
+</html>
